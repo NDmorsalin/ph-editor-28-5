@@ -1,13 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text editor</title>
-    <script src="https://cdn.tailwindcss.com"></script> 
-</head>
-<body>
-    
-</body>
+
+    <link id="google-fonts" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/d97cd386ca.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="my-8">
+    <!-- toolbar -->
+    <hr />
+    <header class="w-9/12 mx-auto flex gap-4 items-center justify-center">
+      <!-- zoom -->
+      <select class="w-20 border-x" name="zoom" id="zoom">
+        <option value="50">50%</option>
+        <option  value="75">75%</option>
+        <option selected value="100">100%</option>
+        <option value="125">125%</option>
+        <option value="150">150%</option>
+      </select>
+
+      <!-- font family -->
+      <input
+        value="Mynerve"
+        class="border-x"
+        type="text"
+        name="fontFamily"
+        list="fontFamilyList"
+        id="fontFamily"
+      />
+      <datalist class="w-32 border-x" id="fontFamilyList">
+        <option value="Mynerve">Mynerve</option>
+        <option value="Roboto">Roboto</option>
+        <option value="Open Sans">Open Sans</option>
+        <option value="Montserrat">Montserrat</option>
+        <option value="Lato">Lato</option>
+        <option value="Raleway">Raleway</option>
+        <option value="Poppins">Poppins</option>
+        <option value="Source Sans Pro">Source Sans Pro</option>
+        <option value="Ubuntu">Ubuntu</option>
+        <option value="Oswald">Oswald</option>
+        <option value="Nunito">Nunito</option>
+        <option value="Quicksand">Quicksand</option>
+        <option value="Merriweather">Merriweather</option>
+        <option value="Playfair Display">Playfair Display</option>
+        <option value="Dosis">Dosis</option>
+        <option value="Titillium Web">Titillium Web</option>
+        <option value="Comfortaa">Comfortaa</option>
+        <option value="Bebas Neue">Bebas Neue</option>
+        <option value="Cabin">Cabin</option>
+        <option value="Pacifico">Pacifico</option>
+        <option value="Archivo Narrow">Archivo Narrow</option>
+        <option value="Bitter">Bitter</option>
+        <option value="Fjalla One">Fjalla One</option>
+        <option value="Karla">Karla</option>
+        <option value="Arimo">Arimo</option>
+        <option value="Josefin Sans">Josefin Sans</option>
+        <option value="Noto Sans">Noto Sans</option>
+        <option value="Muli">Muli</option>
+        <option value="Hind">Hind</option>
+        <option value="Vollkorn">Vollkorn</option>
+        <option value="Rokkitt">Rokkitt</option>
+        <option value="Roboto Condensed">Roboto Condensed</option>
+        <option value="Nunito Sans">Nunito Sans</option>
+        <option value="Exo 2">Exo 2</option>
+        <option value="Rubik">Rubik</option>
+        <option value="Signika">Signika</option>
+        <option value="Open Sans Condensed">Open Sans Condensed</option>
+        <option value="Ropa Sans">Ropa Sans</option>
+        <option value="PT Sans">PT Sans</option>
+        <option value="Abel">Abel</option>
+        <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
+        <option value="Maven Pro">Maven Pro</option>
+        <option value="Overpass">Overpass</option>
+        <option value="DM Sans">DM Sans</option>
+        <option value="Inter">Inter</option>
+        <option value="Spectral">Spectral</option>
+        <option value="Source Code Pro">Source Code Pro</option>
+        <option value="Fira Sans">Fira Sans</option>
+        <option value="Barlow">Barlow</option>
+        <option value="Noticia Text">Noticia Text</option>
+        <option value="Work Sans">Work Sans</option>
+        <option value="Oswald">Oswald</option>
+        <option value="Libre Baskerville">Libre Baskerville</option>
+      </datalist>
+
+      <!-- font size -->
+      <div class="border my-1">
+        <button class="px-2" type="button" id="fontDecrease">-</button>
+        <input
+          value="10"
+          class="w-16 border-x"
+          type="text"
+          name="fontSize"
+          list="fontSizeList"
+          id="fontSize"
+        />
+
+        <datalist class="w-fit" id="fontSizeList">
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">37</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+        </datalist>
+        <button class="px-2" type="button" id="fontIncrease">+</button>
+      </div>
+
+      <!-- font style -->
+      <div class="border-x flex items-center gap-1">
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="bold"
+          >
+            <i class="fa-solid fa-bold"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="italic"
+          >
+            <i class="fa-solid fa-italic"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="underline"
+          >
+            <i class="fa-solid fa-underline"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="text-bg"
+          >
+            <i class="fa-solid fa-paintbrush"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="text-color"
+          >
+            <i class="fa-solid fa-a"></i>
+          </button>
+        </div>
+      </div>
+      <!-- text align -->
+      <div class="border-x flex items-center gap-1">
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="align-left"
+          >
+            <i class="fa-solid fa-align-left"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="align-right"
+          >
+            <i class="fa-solid fa-align-right"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="align-center"
+          >
+            <i class="fa-solid fa-align-center"></i>
+          </button>
+        </div>
+        <div class="">
+          <button
+            type="button"
+            class="hover:bg-gray-300 px-2 rounded-md duration-700"
+            id="align-justify"
+          >
+            <i class="fa-solid fa-align-justify"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <hr />
+
+    <main
+      id="textareaContainer"
+      class="w-9/12 mx-auto mt-4 shadow-xl rounded-xl p-2"
+    >
+      <textarea
+        class="w-full rounded-xl p-10 mx-auto block shadow"
+        name="text-area"
+        id="textarea"
+        cols="30"
+        rows="18"
+        placeholder="Default font Mynerve"
+      ></textarea>
+    </main>
+    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dolore cumque recusandae et inventore molestiae officiis sint minus eos. Eos ratione, aperiam magnam nobis maxime repellat quos veniam alias? Nihil eveniet rerum delectus, omnis ipsum error tempora maiores harum cumque illo sed, reiciendis in, incidunt aut accusantium odit obcaecati qui. Voluptatibus, nulla culpa. Et aut magni, deserunt culpa rem asperiores qui distinctio ab itaque aliquid nostrum, facilis repellendus cupiditate maiores eos quam dolor. Reprehenderit explicabo vero facere quod odio, blanditiis consequuntur at labore perferendis distinctio nesciunt qui reiciendis? Quisquam dolores aspernatur nihil molestias ducimus sed veniam qui recusandae praesentium ut! -->
+
+    <script src="./script/utility.js"></script>
+    <script src="./script/script.js"></script>
+  </body>
 </html>
